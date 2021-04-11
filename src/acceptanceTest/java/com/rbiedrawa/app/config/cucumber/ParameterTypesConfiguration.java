@@ -1,4 +1,4 @@
-package com.rbiedrawa.app.at.config.cucumber;
+package com.rbiedrawa.app.config.cucumber;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.DefaultDataTableCellTransformer;
@@ -7,7 +7,7 @@ import io.cucumber.java.DefaultParameterTransformer;
 
 import java.lang.reflect.Type;
 
-public class CucumberDataTableTransformer {
+public class ParameterTypesConfiguration {
 
 	private final ObjectMapper objectMapper = new ObjectMapper();
 

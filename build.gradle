@@ -28,14 +28,16 @@ ext {
 apply from: 'gradle/acceptanceTests.gradle'
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
+	// Test
 
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
 
 	// Acceptance tests
@@ -44,7 +46,8 @@ dependencies {
 
 	acceptanceTestImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
 	acceptanceTestImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
-	acceptanceTestImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+	acceptanceTestImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+	acceptanceTestImplementation "org.junit.platform:junit-platform-commons"
 }
 
 dependencyManagement {
@@ -53,10 +56,15 @@ dependencyManagement {
 	}
 }
 
-test {
-	useJUnitPlatform()
-}
-
 springBoot {
 	buildInfo()
+}
+
+test {
+	useJUnitPlatform()
+
+	testLogging {
+		events "passed", "skipped", "failed"
+		showStandardStreams = true
+	}
 }

@@ -33,3 +33,14 @@ cluecumberReports {
 	sourceJsonReportDirectory = "$projectDir/build/reports/cucumber/json-report/"
 	generatedHtmlReportDirectory = "$projectDir/build/reports/acceptanceTest"
 }
+
+acceptanceTest {
+	useJUnitPlatform()
+
+	systemProperties(project.gradle.startParameter.systemPropertiesArgs)
+
+	testLogging {
+		events "passed", "skipped", "failed"
+		showStandardStreams = true
+	}
+}

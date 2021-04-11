@@ -1,4 +1,4 @@
-package com.rbiedrawa.app.at.config;
+package com.rbiedrawa.app.config.profiles;
 
 public class Profiles {
 

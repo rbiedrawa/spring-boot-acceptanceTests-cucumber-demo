@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
-import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/hello")
@@ -19,7 +18,7 @@ public class WelcomeController {
 	private final WelcomeService welcomeService;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	Mono<Map<String, String>> greet(@RequestParam(defaultValue = "") String name) {
+	Map<String, String> greet(@RequestParam(defaultValue = "") String name) {
 		return welcomeService.greet(name);
 	}
 

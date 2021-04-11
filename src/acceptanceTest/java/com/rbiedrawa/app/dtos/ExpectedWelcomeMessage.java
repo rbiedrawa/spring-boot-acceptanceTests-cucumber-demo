@@ -1,4 +1,4 @@
-package com.rbiedrawa.app.at.dtos;
+package com.rbiedrawa.app.dtos;
 
 import lombok.Value;
 
