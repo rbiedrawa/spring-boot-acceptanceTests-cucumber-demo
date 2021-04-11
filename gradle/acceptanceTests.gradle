@@ -1,0 +1,35 @@
+sourceSets {
+	acceptanceTest {
+		compileClasspath += sourceSets.main.output + configurations.testCompile + sourceSets.test.output
+		runtimeClasspath += output + compileClasspath + configurations.testRuntime
+	}
+}
+
+idea {
+	module {
+		testSourceDirs += sourceSets.acceptanceTest.java.srcDirs
+		testResourceDirs += sourceSets.acceptanceTest.resources.srcDirs
+		scopes.TEST.plus += [ configurations.acceptanceTestCompile ]
+	}
+}
+
+task acceptanceTest(type: Test) {
+	description = 'Runs the integration tests.'
+	group = 'verification'
+	testClassesDirs = sourceSets.acceptanceTest.output.classesDirs
+	classpath = sourceSets.acceptanceTest.runtimeClasspath
+	outputs.upToDateWhen { false }
+	mustRunAfter test
+}
+
+check.dependsOn acceptanceTest
+
+configurations {
+	acceptanceTestImplementation.extendsFrom testImplementation
+	acceptanceTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+cluecumberReports {
+	sourceJsonReportDirectory = "$projectDir/build/reports/cucumber/json-report/"
+	generatedHtmlReportDirectory = "$projectDir/build/reports/acceptanceTest"
+}

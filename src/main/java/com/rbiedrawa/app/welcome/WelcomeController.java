@@ -1,4 +1,4 @@
-package com.rbiedrawa.app.hello;
+package com.rbiedrawa.app.welcome;
 
 import java.util.Map;
 
@@ -14,13 +14,13 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/hello")
 @AllArgsConstructor
-public class HelloController {
+public class WelcomeController {
 
-	private final HelloService helloService;
+	private final WelcomeService welcomeService;
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	Mono<Map<String, String>> hello(@RequestParam(defaultValue = "World") String name) {
-		return helloService.greet(name);
+	Mono<Map<String, String>> greet(@RequestParam(defaultValue = "") String name) {
+		return welcomeService.greet(name);
 	}
 
 }
