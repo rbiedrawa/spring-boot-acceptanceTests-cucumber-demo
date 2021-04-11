@@ -8,7 +8,7 @@ import io.cucumber.java.en.And;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TransactionalStepDefs {
+public class TransactionalFeatureStepDefs {
 	private final CustomerRepository customerRepository;
 
 	@And("database is empty")
