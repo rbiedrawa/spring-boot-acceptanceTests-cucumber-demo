@@ -21,7 +21,8 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2020.0.2")
+	set 'springCloudVersion', "2020.0.2"
+	set 'cucumberVersion', "6.10.2"
 }
 
 apply from: 'gradle/acceptanceTests.gradle'
@@ -41,9 +42,9 @@ dependencies {
 	acceptanceTestCompileOnly 'org.projectlombok:lombok'
 	acceptanceTestAnnotationProcessor 'org.projectlombok:lombok'
 
-	acceptanceTestImplementation 'io.cucumber:cucumber-spring:5.1.2'
-	acceptanceTestImplementation 'io.cucumber:cucumber-java:5.1.2'
-	acceptanceTestImplementation 'io.cucumber:cucumber-junit:5.1.2'
+	acceptanceTestImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
+	acceptanceTestImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+	acceptanceTestImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
 }
 
 dependencyManagement {

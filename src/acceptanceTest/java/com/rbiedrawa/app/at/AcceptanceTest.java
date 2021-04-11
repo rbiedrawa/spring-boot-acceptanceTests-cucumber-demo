@@ -1,5 +1,6 @@
 package com.rbiedrawa.app.at;
 
+import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.jupiter.api.Tag;
 
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +27,7 @@ import com.rbiedrawa.app.at.config.Profiles;
 @Tag(Profiles.ACCEPTANCE_TEST)
 @AutoConfigureWireMock(port = AcceptanceTest.RANDOM_PORT)
 @ContextConfiguration(classes = Application.class)
+@CucumberContextConfiguration
 public @interface AcceptanceTest {
 
 	int RANDOM_PORT = 0;
