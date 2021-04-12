@@ -29,7 +29,7 @@ This sample application is intended to show the `acceptance testing` approach us
   ```shell
   ./gradlew generateCluecumberReports
   ```
-  *** *report will be generated here:* `build/reports/acceptanceTest/index.html`.
+  *** *report will be generated under:* `build/reports/acceptanceTest/index.html`.
 
 
 * Run tests based on **tag**.
