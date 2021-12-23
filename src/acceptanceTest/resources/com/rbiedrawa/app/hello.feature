@@ -14,7 +14,7 @@ Feature: Hello Page
       | Hello John Doe! |
 
 #  @Disabled  # uncomment to disable test
-  @Slow #  run only this test: ./gradlew acceptanceTest -Dcucumber.filter.tags="@Slow"
+  @Slow #  to run only this test: ./gradlew acceptanceTest -Dcucumber.filter.tags="@Slow"
   @HelloService
   Scenario: Customer2 opens welcome page
     Given customer: Jane Doe
