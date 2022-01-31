@@ -14,7 +14,7 @@ This sample application is intended to show the `acceptance testing` approach us
 
 ## Getting Started
 
-### Prerequisite
+### Prerequisites
 
 * Java 11
 
